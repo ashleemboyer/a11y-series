@@ -1,0 +1,35 @@
+.BreadcrumbContainer {
+  padding: 12px;
+  background-color: lightgray;
+  text-align: left;
+
+  ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      display: inline;
+      margin: 0;
+      padding: 0;
+
+      a {
+        color: black;
+      }
+    }
+
+    li + li::before {
+      display: inline-block;
+      margin: 0 12px;
+      transform: rotate(15deg);
+      border-right: 2px solid black;
+      height: 0.8em;
+      content: "";
+    }
+
+    [aria-current="page"] {
+      font-weight: bold;
+      text-decoration: none;
+    }
+  }
+}
