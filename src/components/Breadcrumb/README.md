@@ -4,9 +4,9 @@ This component displays a list of links to show users where they are within an a
 
 ## Properties
 
-| Name  | Type   | Required | Default Value | Description                                                                   |
-| ----- | ------ | -------- | ------------- | ----------------------------------------------------------------------------- |
-| links | Arraky | Yes      | None          | These are the links to show in the breadcrumb. Each has a `label` and `href`. |
+| Name  | Type  | Required | Default Value | Description                                                                   |
+| ----- | ----- | -------- | ------------- | ----------------------------------------------------------------------------- |
+| links | Array | Yes      | None          | These are the links to show in the breadcrumb. Each has a `label` and `href`. |
 
 ## Accessibility
 
