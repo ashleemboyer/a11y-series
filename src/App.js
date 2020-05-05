@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import HomePage from "./pages/HomePage";
 import BreadcrumbPage from "./pages/BreadcrumbPage";
+import ListboxPage from "./pages/ListboxPage";
 import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/breadcrumb" component={BreadcrumbPage} />
+          <Route path="/listbox" component={ListboxPage} />
           <Route path="/*" component={NotFoundPage} />
         </Switch>
       </main>
