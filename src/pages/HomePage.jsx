@@ -6,6 +6,7 @@ const Home = () => (
     <h2>Components</h2>
     <Link to="/breadcrumb">Breadcrumb</Link>
     <Link to="/listbox">Listbox</Link>
+    <Link to="/spinbutton">SpinButton</Link>
   </>
 );
 

@@ -37,7 +37,7 @@ A Listbox provides similar functionality to `<select>` elements. This component 
   - `role="option"`
   - `aria-selected="true"|"false|`
 
-### Usage
+## Usage
 
 ```jsx
 <Listbox
