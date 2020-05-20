@@ -19,10 +19,10 @@ const Listbox = ({ label, options }) => {
     if (isOpen && listboxRef.current) {
       listboxRef.current.focus();
     }
-  }, [listboxRef]);
+  }, [listboxRef, isOpen]);
 
   const selectedOption = options.find(
-    option => option.id === options[indexOfSelectedOption].id
+    (option) => option.id === options[indexOfSelectedOption].id
   );
 
   const focusPreviousOption = () => {
@@ -49,13 +49,13 @@ const Listbox = ({ label, options }) => {
     setIndexOfSelectedOption(newIndex);
   };
 
-  const handleButtonKeyDown = e => {
+  const handleButtonKeyDown = (e) => {
     if (e.keyCode === ARROW_DOWN || e.keyCode === ARROW_UP) {
       setIsOpen(true);
     }
   };
 
-  const handleListboxKeyDown = e => {
+  const handleListboxKeyDown = (e) => {
     if (e.keyCode === ARROW_UP) {
       focusPreviousOption();
     } else if (e.keyCode === ARROW_DOWN) {
@@ -119,9 +119,9 @@ Listbox.propTypes = {
   options: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string.isRequired,
-      id: PropTypes.string.isRequired
+      id: PropTypes.string.isRequired,
     })
-  ).isRequired
+  ).isRequired,
 };
 
 export default Listbox;

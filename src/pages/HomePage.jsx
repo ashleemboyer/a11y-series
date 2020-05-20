@@ -7,6 +7,7 @@ const Home = () => (
     <Link to="/breadcrumb">Breadcrumb</Link>
     <Link to="/listbox">Listbox</Link>
     <Link to="/spinbutton">SpinButton</Link>
+    <Link to="/radiogroup">RadioGroup</Link>
   </>
 );
 

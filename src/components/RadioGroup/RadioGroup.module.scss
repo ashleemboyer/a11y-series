@@ -1,0 +1,52 @@
+.RadioGroup {
+  label {
+    display: block;
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+
+  &--selected,
+  &--notSelected {
+    height: 1.6rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+    cursor: pointer;
+
+    & > div {
+      width: 16px;
+      height: 16px;
+      border-radius: 100%;
+      margin-right: 8px;
+    }
+
+    span {
+      font-size: 1.2rem;
+    }
+  }
+
+  &--selected {
+    & > div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: pink;
+      border: 2px solid palevioletred;
+
+      div {
+        width: 8px;
+        height: 8px;
+        background-color: palevioletred;
+        border-radius: 100%;
+      }
+    }
+  }
+
+  &--notSelected {
+    & > div {
+      background-color: white;
+      border: 2px solid gray;
+    }
+  }
+}
