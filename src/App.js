@@ -6,6 +6,7 @@ import BreadcrumbPage from "./pages/BreadcrumbPage";
 import ListboxPage from "./pages/ListboxPage";
 import SpinButtonPage from "./pages/SpinButtonPage";
 import RadioGroupPage from "./pages/RadioGroupPage";
+import LinkPage from "./pages/LinkPage";
 import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route path="/listbox" component={ListboxPage} />
           <Route path="/spinbutton" component={SpinButtonPage} />
           <Route path="/radiogroup" component={RadioGroupPage} />
+          <Route path="/link" component={LinkPage} />
           <Route path="/*" component={NotFoundPage} />
         </Switch>
       </main>
