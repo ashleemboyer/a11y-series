@@ -9,6 +9,7 @@ const Home = () => (
     <Link to="/spinbutton">SpinButton</Link>
     <Link to="/radiogroup">RadioGroup</Link>
     <Link to="/link">Link</Link>
+    <Link to="/tooltip-widget">TooltipWidget</Link>
   </>
 );
 
