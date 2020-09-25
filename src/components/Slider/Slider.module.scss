@@ -1,0 +1,41 @@
+$rail-height: 8px;
+$thumb-size: 24px;
+
+:export {
+  thumbSize: $thumb-size;
+}
+
+.SliderContainer {
+  .SliderLabel {
+  }
+
+  .Slider {
+    width: 100%;
+    border: 1px solid black;
+    position: relative;
+    padding: 20px;
+
+    .SliderRail {
+      width: calc(100% - 40px);
+      height: $rail-height;
+      border: 1px solid gray;
+      background-color: lightgray;
+      margin: 20px 0;
+      position: absolute;
+      top: ($thumb-size - $rail-height) / 2;
+    }
+
+    .SliderThumb {
+      height: $thumb-size;
+      width: $thumb-size;
+      border-radius: $thumb-size / 2;
+      border: 1px solid gray;
+      background-color: lightgray;
+      position: relative;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}

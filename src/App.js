@@ -10,6 +10,7 @@ import SpinButtonPage from "./pages/SpinButtonPage";
 import RadioGroupPage from "./pages/RadioGroupPage";
 import LinkPage from "./pages/LinkPage";
 import TooltipWidgetPage from "./pages/TooltipWidgetPage";
+import SliderPage from "./pages/SliderPage";
 import NotFoundPage from "./pages/NotFoundPage";
 
 library.add(fas);
@@ -30,6 +31,7 @@ function App() {
           <Route path="/radiogroup" component={RadioGroupPage} />
           <Route path="/link" component={LinkPage} />
           <Route path="/tooltip-widget" component={TooltipWidgetPage} />
+          <Route path="/slider" component={SliderPage} />
           <Route path="/*" component={NotFoundPage} />
         </Switch>
       </main>
