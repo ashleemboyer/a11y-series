@@ -1,8 +1,9 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styles from './HomePage.module.scss';
 
-const Home = () => (
-  <>
+const HomePage = () => (
+  <div className={styles.HomePage}>
     <h2>Components</h2>
     <Link to="/breadcrumb">Breadcrumb</Link>
     <Link to="/listbox">Listbox</Link>
@@ -11,7 +12,8 @@ const Home = () => (
     <Link to="/link">Link</Link>
     <Link to="/tooltip-widget">TooltipWidget</Link>
     <Link to="/slider">Slider</Link>
-  </>
+    <Link to="/alertdialog">AlertDialog</Link>
+  </div>
 );
 
-export default Home;
+export default HomePage;
