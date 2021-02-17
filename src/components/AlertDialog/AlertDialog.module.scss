@@ -1,0 +1,37 @@
+.AlertDialog {
+  background-color: rgba(black, 0.4);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 16px;
+  padding-top: 48px;
+
+  &--card {
+    background-color: white;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: -2px 2px 4px rgba(black, 0.4);
+  }
+
+  &--header {
+    h2 {
+      font-size: 2rem;
+    }
+  }
+
+  &--body {
+    padding: 24px 0;
+  }
+
+  &--footer {
+    text-align: right;
+
+    button:not(:first-child) {
+      margin-left: 12px;
+    }
+  }
+}
