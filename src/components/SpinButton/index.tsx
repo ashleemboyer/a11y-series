@@ -1,7 +1,6 @@
-import React, { useState } from "react";
-
+import { useState } from "react";
 import keyCodes from "../../constants/keyCodes";
-import styles from "./SpinButton.module.scss";
+import s from "./spin-button.module.css";
 
 const SpinButton = ({ ariaLabel, values, initialIndex }) => {
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
@@ -31,27 +30,27 @@ const SpinButton = ({ ariaLabel, values, initialIndex }) => {
   };
 
   return (
-    <div className={styles.SpinButton}>
+    <div className={s.SpinButton}>
       <button
-        tabIndex="-1"
+        tabIndex={-1}
         onClick={decrementCurrentIndex}
         aria-label={`Previous ${ariaLabel}`}
       >
         &#8593;
       </button>
-      <div className={styles.previousValue} aria-hidden="true">
+      <div className={s.previousValue} aria-hidden="true">
         {previousValue.value}
       </div>
       <div
-        className={styles.currentValue}
+        className={s.currentValue}
         role="spinbutton"
-        tabIndex="0"
+        tabIndex={0}
         aria-valuenow={currentIndex}
         aria-valuetext={`${currentValue.valueText}`}
         aria-valuemin={0}
         aria-valuemax={values.length - 1}
         aria-label={ariaLabel}
-        onKeyDown={e => {
+        onKeyDown={(e) => {
           if (e.keyCode === keyCodes.ARROW_DOWN) {
             decrementCurrentIndex();
           } else if (e.keyCode === keyCodes.ARROW_UP) {
@@ -61,11 +60,11 @@ const SpinButton = ({ ariaLabel, values, initialIndex }) => {
       >
         {currentValue.value}
       </div>
-      <div className={styles.nextValue} aria-hidden="true">
+      <div className={s.nextValue} aria-hidden="true">
         {nextValue.value}
       </div>
       <button
-        tabIndex="-1"
+        tabIndex={-1}
         onClick={incrementCurrentIndex}
         aria-label={`Next ${ariaLabel}`}
       >
