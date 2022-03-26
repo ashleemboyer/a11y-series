@@ -7,6 +7,7 @@ const HomePage = () => {
       <Link href="/components/breadcrumb">Breadcrumb</Link>
       <Link href="/components/link">Link</Link>
       <Link href="/components/listbox">Listbox</Link>
+      <Link href="/components/radiogroup">RadioGroup</Link>
     </>
   );
 };

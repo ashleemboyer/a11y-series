@@ -1,6 +1,6 @@
 import React, { useState, useLayoutEffect } from "react";
 import keyCodes from "../../constants/keyCodes";
-import styles from "./RadioGroup.module.scss";
+import s from "./radio-group.module.css";
 
 const getIndexOfOption = (option, options) => {
   let indexOfOption;
@@ -51,7 +51,6 @@ const RadioGroup = ({ label, options }) => {
 
   return (
     <div
-      className={styles.RadioGroup}
       role="radiogroup"
       aria-labelledby="radio_group_label"
       onFocus={() => {
@@ -74,7 +73,9 @@ const RadioGroup = ({ label, options }) => {
         }
       }}
     >
-      <label id="radio_group_label">{label}</label>
+      <label className={s.label} id="radio_group_label">
+        {label}
+      </label>
       {options.map((option, index) => {
         const isSelected = option.value === selectedOption.value;
 
@@ -83,22 +84,18 @@ const RadioGroup = ({ label, options }) => {
             id={`radioButton_${index}`}
             key={`radioButton_${index}`}
             role="radio"
-            tabIndex={isSelected ? "0" : "-1"}
+            tabIndex={isSelected ? 0 : 1}
             aria-checked={isSelected}
             ref={option.ref}
-            className={
-              isSelected
-                ? styles["RadioGroup--selected"]
-                : styles["RadioGroup--notSelected"]
-            }
+            className={isSelected ? s.selected : s.notSelected}
             onClick={() => {
               setSelectedOption(option);
             }}
           >
-            <div>
-              <div></div>
+            <div className={s.ring}>
+              <div className={s.circle}></div>
             </div>
-            <span>{option.label}</span>
+            <span className={s.text}>{option.label}</span>
           </div>
         );
       })}
