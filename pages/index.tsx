@@ -6,6 +6,7 @@ const HomePage = () => {
       <h1>Components</h1>
       <Link href="/components/breadcrumb">Breadcrumb</Link>
       <Link href="/components/link">Link</Link>
+      <Link href="/components/listbox">Listbox</Link>
     </>
   );
 };

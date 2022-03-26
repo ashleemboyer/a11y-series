@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
 
-import styles from "./Listbox.module.scss";
+import s from "./listbox.module.css";
 
 const ARROW_UP = 38;
 const ARROW_DOWN = 40;
@@ -12,7 +11,7 @@ const Listbox = ({ label, options }) => {
   const buttonRef = React.createRef();
   const listboxRef = React.createRef();
 
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const [indexOfSelectedOption, setIndexOfSelectedOption] = useState(0);
 
   useEffect(() => {
@@ -69,13 +68,16 @@ const Listbox = ({ label, options }) => {
   };
 
   return (
-    <div className={styles.Listbox}>
-      <label id="listboxLabel">{label}</label>
+    <div className={s.root}>
+      <label className={s.label} id="listboxLabel">
+        {label}
+      </label>
       <button
         ref={buttonRef}
         aria-labelledby="listboxLabel"
         aria-haspopup="listbox"
         aria-expanded={isOpen}
+        className={s.button}
         onClick={() => {
           setIsOpen(!isOpen);
         }}
@@ -85,8 +87,9 @@ const Listbox = ({ label, options }) => {
       </button>
       {isOpen && (
         <ul
+          className={s.list}
           ref={listboxRef}
-          tabIndex={isOpen ? "0" : "-1"}
+          tabIndex={isOpen ? 0 : -1}
           role="listbox"
           aria-activedescendant={selectedOption.id}
           onKeyDown={handleListboxKeyDown}
@@ -96,6 +99,7 @@ const Listbox = ({ label, options }) => {
         >
           {options.map((option, index) => (
             <li
+              className={s.listItem}
               id={option.id}
               key={option.id}
               role="option"
@@ -112,16 +116,6 @@ const Listbox = ({ label, options }) => {
       )}
     </div>
   );
-};
-
-Listbox.propTypes = {
-  label: PropTypes.string.isRequired,
-  options: PropTypes.arrayOf(
-    PropTypes.shape({
-      label: PropTypes.string.isRequired,
-      id: PropTypes.string.isRequired,
-    })
-  ).isRequired,
 };
 
 export default Listbox;
