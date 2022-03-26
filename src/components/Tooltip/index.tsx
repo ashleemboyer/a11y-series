@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import keyCodes from "../../constants/keyCodes";
-import styles from "./TooltipWidget.module.scss";
+import s from "./tooltip.module.css";
 
 const TooltipWidget = ({ text }) => {
   const [isHidden, setIsHidden] = useState(true);
@@ -15,9 +15,9 @@ const TooltipWidget = ({ text }) => {
   };
 
   return (
-    <div className={styles.TooltipWidget}>
+    <div className={s.TooltipWidget}>
       <span
-        tabIndex="0"
+        tabIndex={0}
         aria-labelledby="tooltip"
         onMouseEnter={showTooltip}
         onMouseLeave={hideTooltip}
@@ -34,9 +34,7 @@ const TooltipWidget = ({ text }) => {
       <p
         id="tooltip"
         role="tooltip"
-        className={
-          isHidden ? styles["TooltipText-hidden"] : styles["TooltipText"]
-        }
+        className={isHidden ? s.hidden : s.text}
         hidden={isHidden ? isHidden : undefined}
         onMouseEnter={showTooltip}
         onMouseLeave={hideTooltip}
