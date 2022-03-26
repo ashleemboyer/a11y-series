@@ -9,6 +9,7 @@ const HomePage = () => {
       <Link href="/components/listbox">Listbox</Link>
       <Link href="/components/radiogroup">RadioGroup</Link>
       <Link href="/components/slider">Slider</Link>
+      <Link href="/components/spinbutton">SpinButton</Link>
     </>
   );
 };
