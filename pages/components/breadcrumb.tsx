@@ -1,6 +1,4 @@
-import React from "react";
-
-import { Breadcrumb } from "../components/Breadcrumb";
+import Breadcrumb from "../../src/components/Breadcrumb";
 
 const BreadcrumbPage = () => (
   <>
@@ -9,7 +7,7 @@ const BreadcrumbPage = () => (
       links={[
         { label: "Link 1", href: "" },
         { label: "Link 2", href: "" },
-        { label: "Link 3", href: "" }
+        { label: "Link 3", href: "" },
       ]}
     />
   </>
