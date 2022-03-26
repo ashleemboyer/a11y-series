@@ -1,7 +1,17 @@
 import type { AppProps, NextWebVitalsMetric } from "next/app";
+import Link from "next/link";
 
 const App = ({ Component, pageProps }: AppProps) => {
-  return <Component {...pageProps} />;
+  return (
+    <>
+      <header>
+        <nav>
+          <Link href="/">Home</Link>
+        </nav>
+      </header>
+      <Component {...pageProps} />
+    </>
+  );
 };
 
 const abbreviationsToNames = {
