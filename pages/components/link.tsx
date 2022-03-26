@@ -1,4 +1,4 @@
-import Link from "../../src/components/Link";
+import Link from "components/Link";
 
 const LinkPage = () => (
   <Link href="https://ashleemboyer.com" text="My Website" target="_blank" />

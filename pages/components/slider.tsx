@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Slider from "../../src/components/Slider";
+import Slider from "components/Slider";
 
 const SliderPage = () => {
   const [sliderValue, setSliderValue] = useState(45);

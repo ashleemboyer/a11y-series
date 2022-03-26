@@ -1,4 +1,4 @@
-import Breadcrumb from "../../src/components/Breadcrumb";
+import Breadcrumb from "components/Breadcrumb";
 
 const BreadcrumbPage = () => (
   <>

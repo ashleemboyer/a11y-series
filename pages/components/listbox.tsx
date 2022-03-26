@@ -1,4 +1,4 @@
-import Listbox from "../../src/components/Listbox";
+import Listbox from "components/Listbox";
 
 const options = [
   {

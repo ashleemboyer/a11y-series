@@ -1,5 +1,5 @@
 import { createRef } from "react";
-import RadioGroup from "../../src/components/RadioGroup";
+import RadioGroup from "components/RadioGroup";
 
 const options = [
   { label: "Rose Nylund", value: "rose_nylund", ref: createRef() },

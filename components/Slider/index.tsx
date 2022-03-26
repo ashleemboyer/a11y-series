@@ -4,6 +4,16 @@ import s from "./slider.module.css";
 
 const THUMB_SIZE = 24;
 
+interface SliderProps {
+  ariaLabel?: string;
+  initialValue?: number;
+  label: string;
+  maxValue: number;
+  minValue: number;
+  onChangeCallback?: (newValue: number) => void;
+  stepSize: number;
+}
+
 const Slider = ({
   ariaLabel,
   initialValue,
@@ -12,7 +22,7 @@ const Slider = ({
   minValue,
   onChangeCallback,
   stepSize,
-}) => {
+}: SliderProps) => {
   const [currentValue, setCurrentValue] = useState(initialValue || minValue);
   const currentValuePercentage = (currentValue / (maxValue - minValue)) * 100;
 

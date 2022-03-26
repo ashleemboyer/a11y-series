@@ -1,4 +1,4 @@
-import SpinButton from "../../src/components/SpinButton";
+import SpinButton from "components/SpinButton";
 
 const SpinButtonPage = () => (
   <>
