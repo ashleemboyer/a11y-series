@@ -1,7 +1,5 @@
-import React from "react";
-import PropTypes from "prop-types";
 import keyCodes from "../../constants/keyCodes";
-import styles from "./Link.module.scss";
+import s from "./link.module.css";
 
 const handleClickOrKeydown = (e, href, target) => {
   e.preventDefault();
@@ -16,12 +14,19 @@ const handleClickOrKeydown = (e, href, target) => {
   }
 };
 
-const Link = ({ text, href, ariaLabel, target }) => (
+interface LinkProps {
+  ariaLabel?: string;
+  href: string;
+  target?: string;
+  text: string;
+}
+
+const Link = ({ ariaLabel, href, target, text }: LinkProps) => (
   <span
-    className={styles.Link}
-    aria-label={text ? undefined : ariaLabel}
+    aria-label={ariaLabel}
+    className={s.root}
     role="link"
-    tabIndex="0"
+    tabIndex={0}
     onClick={(e) => {
       handleClickOrKeydown(e, href, target);
     }}
@@ -32,18 +37,5 @@ const Link = ({ text, href, ariaLabel, target }) => (
     {text}
   </span>
 );
-
-Link.propTypes = {
-  text: PropTypes.string,
-  href: PropTypes.string.isRequired,
-  ariaLabel: PropTypes.string,
-  target: PropTypes.string,
-};
-
-Link.defaultProps = {
-  text: undefined,
-  ariaLabel: undefined,
-  target: "_self",
-};
 
 export default Link;
