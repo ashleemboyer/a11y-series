@@ -8,6 +8,7 @@ const HomePage = () => {
       <Link href="/components/link">Link</Link>
       <Link href="/components/listbox">Listbox</Link>
       <Link href="/components/radiogroup">RadioGroup</Link>
+      <Link href="/components/slider">Slider</Link>
     </>
   );
 };
