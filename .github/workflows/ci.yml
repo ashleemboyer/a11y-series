@@ -1,0 +1,19 @@
+name: "CI"
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    steps:
+      - uses: actions/checkout@v2
+      - run: npm ci
+      - run: npm run test
+  lint:
+    steps:
+      - uses: actions/checkout@v2
+      - run: npm ci
+      - run: npm run lint
