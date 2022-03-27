@@ -12,7 +12,7 @@ const SliderPage = () => {
         maxValue={100}
         stepSize={1}
         initialValue={sliderValue}
-        onChangeCallback={(newValue) => {
+        onChange={(newValue) => {
           setSliderValue(newValue);
         }}
       />
