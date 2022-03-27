@@ -4,13 +4,13 @@ import s from "./slider.module.css";
 
 const THUMB_SIZE = 24;
 
-interface SliderProps {
+export interface SliderProps {
   ariaLabel?: string;
   initialValue?: number;
   label: string;
   maxValue: number;
   minValue: number;
-  onChangeCallback?: (newValue: number) => void;
+  onChange?: (newValue: number) => void;
   stepSize: number;
 }
 
@@ -20,7 +20,7 @@ const Slider = ({
   label,
   maxValue,
   minValue,
-  onChangeCallback,
+  onChange,
   stepSize,
 }: SliderProps) => {
   const [currentValue, setCurrentValue] = useState(initialValue || minValue);
@@ -52,8 +52,11 @@ const Slider = ({
 
     const newValue = Math.min(Math.max(possibleNewValue, minValue), maxValue);
     if (newValue !== currentValue) {
-      onChangeCallback(newValue);
       setCurrentValue(newValue);
+
+      if (onChange) {
+        onChange(newValue);
+      }
     }
   };
 
@@ -67,18 +70,18 @@ const Slider = ({
       <div className={s.Slider}>
         <div className={s.SliderRail}></div>
         <div
-          role="slider"
-          tabIndex={0}
+          aria-label={ariaLabel}
+          aria-labelledby={label ? "slider-label" : undefined}
+          aria-valuemax={maxValue}
           aria-valuemin={minValue}
           aria-valuenow={currentValue}
-          aria-valuemax={maxValue}
-          aria-labelledby={label ? "slider-label" : undefined}
-          aria-label={label ? undefined : ariaLabel}
           className={s.SliderThumb}
+          onKeyDown={handleKeyDown}
+          role="slider"
           style={{
             left: `calc(${currentValuePercentage}% - ${THUMB_SIZE}px / 2)`,
           }}
-          onKeyDown={handleKeyDown}
+          tabIndex={0}
         ></div>
       </div>
     </div>
