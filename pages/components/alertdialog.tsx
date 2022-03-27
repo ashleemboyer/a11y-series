@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import { useRef, useState } from "react";
 import Link from "next/link";
 import AlertDialog from "components/AlertDialog";
 
 const AlertDialogPage = () => {
   const [showAlertDialog, setShowAlertDialog] = useState(false);
-  const buttonRef = React.createRef();
+  const buttonRef = useRef<HTMLButtonElement>();
 
   return (
     <>
@@ -26,13 +26,13 @@ const AlertDialogPage = () => {
               <Link href="/">here</Link>.
             </span>
           }
-          cancelButtonOptions={{
+          cancelButtonProps={{
             text: "Nope",
             onClick: () => {
               console.log('Clicked "Nope"');
             },
           }}
-          confirmButtonOptions={{
+          confirmButtonProps={{
             text: "Yep",
             onClick: () => {
               console.log('Clicked "Yep"');
