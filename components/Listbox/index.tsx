@@ -13,8 +13,8 @@ interface ListboxProps {
 }
 
 const Listbox = ({ label, options }: ListboxProps) => {
-  const buttonRef = React.createRef();
-  const listboxRef = React.createRef();
+  const buttonRef = React.createRef<HTMLButtonElement>();
+  const listboxRef = React.createRef<HTMLUListElement>();
 
   const [isOpen, setIsOpen] = useState(false);
   const [indexOfSelectedOption, setIndexOfSelectedOption] =
