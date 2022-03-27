@@ -1,5 +1,4 @@
-import React, { useState, useLayoutEffect } from "react";
-import keyCodes from "../../constants/keyCodes";
+import React, { RefObject, useState, useRef } from "react";
 import s from "./radio-group.module.css";
 
 const getIndexOfOption = (option, options) => {
@@ -14,9 +13,22 @@ const getIndexOfOption = (option, options) => {
   return indexOfOption;
 };
 
-const RadioGroup = ({ label, options }) => {
-  const [hasRunOnce, setHasRunOnce] = useState(false);
+interface RadioGroupProps {
+  label: string;
+  options: {
+    label: string;
+    value: string;
+    ref: RefObject<HTMLDivElement>;
+  }[];
+}
+
+const RadioGroup = ({ label, options }: RadioGroupProps) => {
   const [selectedOption, setSelectedOption] = useState(options[0]);
+  const shouldFocusOption = useRef(false);
+
+  if (shouldFocusOption) {
+    selectedOption?.ref?.current?.focus();
+  }
 
   const focusNextOption = () => {
     let optionToFocus;
@@ -40,35 +52,19 @@ const RadioGroup = ({ label, options }) => {
     setSelectedOption(optionToFocus);
   };
 
-  useLayoutEffect(() => {
-    if (!hasRunOnce) {
-      setHasRunOnce(true);
-      return;
-    }
-
-    selectedOption.ref.current.focus();
-  }, [hasRunOnce, selectedOption]);
-
   return (
     <div
       role="radiogroup"
       aria-labelledby="radio_group_label"
-      onFocus={() => {
-        selectedOption.ref.current.focus();
-      }}
       onKeyDown={(e) => {
-        const keyCode = e.keyCode;
-        if (
-          keyCode === keyCodes.ARROW_RIGHT ||
-          keyCode === keyCodes.ARROW_DOWN
-        ) {
+        console.log("keydown", e.key);
+        if (e.key === "ArrowRight" || e.key === "ArrowDown") {
           e.preventDefault();
+          e.stopPropagation();
           focusNextOption();
-        } else if (
-          keyCode === keyCodes.ARROW_LEFT ||
-          keyCode === keyCodes.ARROW_UP
-        ) {
+        } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
           e.preventDefault();
+          e.stopPropagation();
           focusPreviousOption();
         }
       }}
@@ -81,16 +77,17 @@ const RadioGroup = ({ label, options }) => {
 
         return (
           <div
-            id={`radioButton_${index}`}
-            key={`radioButton_${index}`}
-            role="radio"
-            tabIndex={isSelected ? 0 : 1}
             aria-checked={isSelected}
-            ref={option.ref}
             className={isSelected ? s.selected : s.notSelected}
+            id={option.value}
+            key={option.value}
             onClick={() => {
               setSelectedOption(option);
+              shouldFocusOption.current = true;
             }}
+            ref={option.ref}
+            role="radio"
+            tabIndex={isSelected ? 0 : -1}
           >
             <div className={s.ring}>
               <div className={s.circle}></div>
@@ -99,6 +96,7 @@ const RadioGroup = ({ label, options }) => {
           </div>
         );
       })}
+      <a href="hello">test</a>
     </div>
   );
 };
