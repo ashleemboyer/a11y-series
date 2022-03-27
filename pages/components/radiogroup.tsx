@@ -6,17 +6,14 @@ const options = [
   {
     label: "Blanche Devereaux",
     value: "blanche_devereaux",
-    ref: createRef(),
   },
   {
     label: "Dorothy Zbornak",
     value: "dorothy_zbornak",
-    ref: createRef(),
   },
   {
     label: "Sophia Petrillo",
     value: "sophia_petrillo",
-    ref: createRef(),
   },
 ];
 

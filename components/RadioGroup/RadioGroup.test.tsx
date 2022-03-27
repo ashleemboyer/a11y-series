@@ -9,17 +9,14 @@ const testOptions = [
   {
     label: "Blanche Devereaux",
     value: "blanche_devereaux",
-    ref: createRef<HTMLDivElement>(),
   },
   {
     label: "Dorothy Zbornak",
     value: "dorothy_zbornak",
-    ref: createRef<HTMLDivElement>(),
   },
   {
     label: "Sophia Petrillo",
     value: "sophia_petrillo",
-    ref: createRef<HTMLDivElement>(),
   },
 ];
 

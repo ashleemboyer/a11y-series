@@ -1,4 +1,4 @@
-import React, { RefObject, useState, useRef } from "react";
+import React, { useRef, useState } from "react";
 import s from "./radio-group.module.css";
 
 const getIndexOfOption = (option, options) => {
@@ -18,16 +18,17 @@ interface RadioGroupProps {
   options: {
     label: string;
     value: string;
-    ref: RefObject<HTMLDivElement>;
   }[];
 }
 
 const RadioGroup = ({ label, options }: RadioGroupProps) => {
   const [selectedOption, setSelectedOption] = useState(options[0]);
   const shouldFocusOption = useRef(false);
+  const optionElements = useRef<{ [key in string]: HTMLDivElement }>({});
 
-  if (shouldFocusOption) {
-    selectedOption?.ref?.current?.focus();
+  if (shouldFocusOption.current) {
+    optionElements.current[selectedOption.value].focus();
+    shouldFocusOption.current = false;
   }
 
   const focusNextOption = () => {
@@ -39,6 +40,7 @@ const RadioGroup = ({ label, options }: RadioGroupProps) => {
       optionToFocus = options[indexOfSelectedOption + 1];
     }
     setSelectedOption(optionToFocus);
+    shouldFocusOption.current = true;
   };
 
   const focusPreviousOption = () => {
@@ -50,6 +52,7 @@ const RadioGroup = ({ label, options }: RadioGroupProps) => {
       optionToFocus = options[indexOfSelectedOption - 1];
     }
     setSelectedOption(optionToFocus);
+    shouldFocusOption.current = true;
   };
 
   return (
@@ -57,14 +60,11 @@ const RadioGroup = ({ label, options }: RadioGroupProps) => {
       role="radiogroup"
       aria-labelledby="radio_group_label"
       onKeyDown={(e) => {
-        console.log("keydown", e.key);
         if (e.key === "ArrowRight" || e.key === "ArrowDown") {
           e.preventDefault();
-          e.stopPropagation();
           focusNextOption();
         } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
           e.preventDefault();
-          e.stopPropagation();
           focusPreviousOption();
         }
       }}
@@ -72,7 +72,7 @@ const RadioGroup = ({ label, options }: RadioGroupProps) => {
       <label className={s.label} id="radio_group_label">
         {label}
       </label>
-      {options.map((option, index) => {
+      {options.map((option) => {
         const isSelected = option.value === selectedOption.value;
 
         return (
@@ -85,7 +85,11 @@ const RadioGroup = ({ label, options }: RadioGroupProps) => {
               setSelectedOption(option);
               shouldFocusOption.current = true;
             }}
-            ref={option.ref}
+            ref={(optionElement) => {
+              if (!optionElements.current[option.value]) {
+                optionElements.current[option.value] = optionElement;
+              }
+            }}
             role="radio"
             tabIndex={isSelected ? 0 : -1}
           >
@@ -96,7 +100,6 @@ const RadioGroup = ({ label, options }: RadioGroupProps) => {
           </div>
         );
       })}
-      <a href="hello">test</a>
     </div>
   );
 };
