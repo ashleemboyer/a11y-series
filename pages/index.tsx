@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 const components = [
+  "AlertDialog",
   "Breadcrumb",
   "Link",
   "Listbox",
