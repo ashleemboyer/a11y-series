@@ -1,7 +1,11 @@
 import s from "./breadcrumb.module.css";
 
-const Breadcrumb = ({ links }) => (
-  <nav aria-label="Breadcrumb" className={s.root}>
+interface BreadcrumbProps {
+  links: { label: string; href: string }[];
+}
+
+const Breadcrumb = ({ links }: BreadcrumbProps) => (
+  <nav aria-label="breadcrumb" className={s.root}>
     <ol className={s.list}>
       {links.map(({ label, href }, index) => {
         const isLastLink = index === links.length - 1;
