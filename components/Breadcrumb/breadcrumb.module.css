@@ -1,0 +1,36 @@
+.root {
+  padding: 12px;
+  background-color: lightgray;
+  text-align: left;
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.listItem {
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+
+.listItem + .listItem::before {
+  display: inline-block;
+  margin: 0 12px;
+  transform: rotate(15deg);
+  border-right: 2px solid black;
+  height: 0.8em;
+  content: "";
+}
+
+.anchor {
+  display: inline-block;
+  color: black;
+}
+
+.anchor[aria-current="page"] {
+  font-weight: bold;
+  text-decoration: none;
+}

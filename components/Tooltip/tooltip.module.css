@@ -1,0 +1,29 @@
+.TooltipWidget {
+  cursor: pointer;
+}
+
+.text {
+  display: inline-block;
+  position: relative;
+  max-width: 250px;
+  line-height: 1.5em;
+  padding: 8px;
+  border: 2px solid black;
+  border-radius: 4px;
+  margin-left: 8px;
+  vertical-align: top;
+}
+
+.text::before {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  transform: translateX(-100%);
+  border: 10px solid transparent;
+  border-right-color: black;
+  content: "";
+}
+
+.hidden {
+  display: none;
+}

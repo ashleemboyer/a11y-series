@@ -1,0 +1,12 @@
+.root {
+  color: #c2185b;
+  text-decoration: underline;
+}
+
+.root:hover,
+.root:focus {
+  color: black;
+  cursor: pointer;
+  outline: 2px solid #c2185b;
+  outline-offset: 4px;
+}

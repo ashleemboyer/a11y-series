@@ -1,0 +1,36 @@
+.root {
+  --rail-height: 8px;
+  --thumb-size: 24px;
+
+  width: 80vw;
+}
+
+.Slider {
+  align-items: center;
+  border: 1px solid black;
+  display: flex;
+  padding: 20px;
+  position: relative;
+}
+
+.SliderRail {
+  background-color: lightgray;
+  border: 1px solid gray;
+  height: var(--rail-height);
+  margin: 20px 0;
+  position: absolute;
+  width: calc(100% - 40px);
+}
+
+.SliderThumb {
+  background-color: lightgray;
+  border-radius: var(--thumb-size) / 2;
+  border: 1px solid gray;
+  height: var(--thumb-size);
+  position: relative;
+  width: var(--thumb-size);
+}
+
+.SliderThumb:hover {
+  cursor: pointer;
+}
