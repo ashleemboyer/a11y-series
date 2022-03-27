@@ -49,21 +49,21 @@ const AlertDialog = ({
   }, []);
 
   return (
-    <div id="AlertDialog" className={styles.AlertDialog}>
+    <div id="AlertDialog" className={styles.root}>
       <div
-        className={styles["AlertDialog--card"]}
+        className={styles.card}
         role="alertdialog"
         aria-labelledby="AlertDialog-title"
         aria-describedby="AlertDialog-message"
         aria-modal="true"
       >
-        <div className={styles["AlertDialog--header"]}>
+        <div className={styles.header}>
           <h2 id="AlertDialog-title">{title}</h2>
         </div>
-        <div className={styles["AlertDialog--body"]}>
+        <div className={styles.body}>
           <p id="AlertDialog-message">{message}</p>
         </div>
-        <div className={styles["AlertDialog--footer"]}>
+        <div className={styles.footer}>
           <button
             onClick={() => {
               cancelButtonProps.onClick();
