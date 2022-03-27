@@ -1,4 +1,4 @@
-import type { AppProps, NextWebVitalsMetric } from "next/app";
+import type { AppProps } from "next/app";
 import Link from "next/link";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
@@ -9,7 +9,7 @@ library.add(fab, fas);
 const App = ({ Component, pageProps }: AppProps) => {
   return (
     <>
-      <header>
+      <header style={{ marginBottom: 48 }}>
         <nav>
           <Link href="/">Home</Link>
         </nav>
