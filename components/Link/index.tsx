@@ -2,14 +2,13 @@ import keyCodes from "../../constants/keyCodes";
 import s from "./link.module.css";
 
 const handleClickOrKeydown = (e, href, target) => {
-  e.preventDefault();
-  e.stopPropagation();
-
   const eventType = e.type;
   if (
     eventType === "click" ||
     (eventType === "keydown" && e.keyCode === keyCodes.ENTER)
   ) {
+    e.preventDefault();
+    e.stopPropagation();
     window.open(href, target);
   }
 };
