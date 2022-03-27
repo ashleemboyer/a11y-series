@@ -15,10 +15,10 @@ const HomePage = () => {
     <>
       <h1>Components</h1>
       <ul>
-        {components.map((component) => (
-          <li>
-            <Link href={`/components/${component.toLowerCase()}`}>
-              {component}
+        {components.map((componentName) => (
+          <li key={componentName}>
+            <Link href={`/components/${componentName.toLowerCase()}`}>
+              {componentName}
             </Link>
           </li>
         ))}
